@@ -1,0 +1,46 @@
+syntax = "proto3";
+option java_package = "com.suifeng.decode.proto";
+option java_outer_classname = "ProtoDemo";
+
+message Test1 {
+    // wiretype == 0
+    int32 a = 1;
+    int64 b = 2;
+    uint32 c = 3;
+    uint64 d = 4;
+    sint32 e = 5;
+    sint64 f = 6;
+    bool g = 7;
+    PhoneType h = 8;
+
+    //wiretype == 1
+    fixed64 i = 9;
+    sfixed64 j = 10;
+    double k = 11;
+
+    //wiretype == 2
+    string l = 12;
+    bytes m = 13;
+    Test2 n = 14;
+    repeated int32 o = 15 [packed = true];
+
+    //wiretype == 5
+    fixed32 p = 16;
+    sfixed32 q = 17;
+    float r = 18;
+
+
+    enum PhoneType {
+        MOBILE = 0;
+        HOME = 1;
+        WORK = 2;
+    }
+
+    //    optional string b = 2;
+
+    message Test2 {
+        int32 a = 1;
+    }
+
+
+}
